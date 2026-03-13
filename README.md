@@ -13,11 +13,14 @@ pip install -e .
 
 assistant-bot
 
-## Un Installation
+## Delete
 
+```bash
 pip uninstall assistant-bot -y
 
-# Assistant Bot (OOP)
+```
+
+# Assistant Bot
 
 CLI personal assistant written in Python.
 
@@ -54,20 +57,8 @@ The bot helps manage:
 - List all tags
 - Delete notes by tag
 
-### Data persistence
+### Birthdays
 
-All data is stored on disk and preserved between application restarts.
-
----
-
-# Installation (for users)
-
-### Requirements
-
-Python **3.11+**
-
-Check Python version:
-
-```bash
-python3 --version
-```
+- Add or update birthday
+- Show contact birthday
+- Show upcoming birthdays
