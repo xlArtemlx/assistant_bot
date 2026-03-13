@@ -5,3 +5,9 @@
 
 addressbook.pkl
 notes.pkl
+
+assistant_bot.egg-info
+
+.pytest_cache
+
+__pycache__

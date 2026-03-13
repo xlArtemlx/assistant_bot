@@ -29,4 +29,5 @@ def main() -> None:
     app = Application(context)
     app.run()
 
-main()
+if __name__ == "__main__":
+    main()

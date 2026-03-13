@@ -20,3 +20,4 @@ test:
 
 clean:
 	rm -rf $(VENV)
+	rm -rf build dist *.egg-info

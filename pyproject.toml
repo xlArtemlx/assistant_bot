@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "assistant-bot"
+version = "0.1.0"
+description = "Personal assistant bot for contacts and notes"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Artem Morhunov" }
+]
+
+[project.scripts]
+assistant-bot = "main:main"
+
+[tool.setuptools]
+include-package-data = true
+py-modules = ["main"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
