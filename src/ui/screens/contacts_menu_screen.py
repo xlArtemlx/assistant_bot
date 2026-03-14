@@ -10,17 +10,54 @@ class ContactsMenuScreen(MenuScreen):
 
     def get_commands(self):
         return [
-            ActionCommand("1", "Add contact", "Create or update contact", self.add_contact_screen),
-            ActionCommand("2", "Edit contact name", "Edit contact name", self.edit_contact_name_screen),
-            ActionCommand("3", "Set address", "Set address for contact", self.set_address_screen),
-            ActionCommand("4", "Add phone", "Add phone to contact", self.add_phone_screen),
-            ActionCommand("5", "Edit phone", "Edit phone of contact", self.edit_phone_screen),
-            ActionCommand("6", "Remove phone", "Remove phone from contact", self.remove_phone_screen),
-            ActionCommand("7", "Set email", "Set email for contact", self.set_email_screen),
-            ActionCommand("8", "Show all contacts", "Display all contacts", self.show_all_contacts_screen),
-            ActionCommand("9", "Search contact", "Search for a contact", self.search_contacts_screen),
-            ActionCommand("10", "View contact details", "View details of a contact", self.view_contact_screen),
-            ActionCommand("11", "Delete contact", "Delete a contact", self.delete_contact_screen),
+            ActionCommand(
+                "1", "Add contact", "Create or update contact", self.add_contact_screen
+            ),
+            ActionCommand(
+                "2",
+                "Edit contact name",
+                "Edit contact name",
+                self.edit_contact_name_screen,
+            ),
+            ActionCommand(
+                "3", "Set address", "Set address for contact", self.set_address_screen
+            ),
+            ActionCommand(
+                "4", "Add phone", "Add phone to contact", self.add_phone_screen
+            ),
+            ActionCommand(
+                "5", "Edit phone", "Edit phone of contact", self.edit_phone_screen
+            ),
+            ActionCommand(
+                "6",
+                "Remove phone",
+                "Remove phone from contact",
+                self.remove_phone_screen,
+            ),
+            ActionCommand(
+                "7", "Set email", "Set email for contact", self.set_email_screen
+            ),
+            ActionCommand(
+                "8",
+                "Show all contacts",
+                "Display all contacts",
+                self.show_all_contacts_screen,
+            ),
+            ActionCommand(
+                "9",
+                "Search contact",
+                "Search for a contact",
+                self.search_contacts_screen,
+            ),
+            ActionCommand(
+                "10",
+                "View contact details",
+                "View details of a contact",
+                self.view_contact_screen,
+            ),
+            ActionCommand(
+                "11", "Delete contact", "Delete a contact", self.delete_contact_screen
+            ),
             BackCommand("0"),
         ]
 
@@ -111,7 +148,9 @@ class ContactsMenuScreen(MenuScreen):
         contacts = self.context.contact_service.get_all_contacts()
         rows = [self._record_to_row(record) for record in contacts]
 
-        self.printer.print_table(["Name", "Address", "Phones", "Email", "Birthday"], rows)
+        self.printer.print_table(
+            ["Name", "Address", "Phones", "Email", "Birthday"], rows
+        )
         self.input_handler.pause()
 
     def search_contacts_screen(self) -> None:
@@ -122,7 +161,9 @@ class ContactsMenuScreen(MenuScreen):
         results = self.context.contact_service.search_contacts(query)
         rows = [self._record_to_row(record) for record in results]
 
-        self.printer.print_table(["Name", "Address", "Phones", "Email", "Birthday"], rows)
+        self.printer.print_table(
+            ["Name", "Address", "Phones", "Email", "Birthday"], rows
+        )
         self.input_handler.pause()
 
     def view_contact_screen(self) -> None:

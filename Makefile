@@ -18,6 +18,18 @@ run:
 test:
 	$(PYTHON) -m pytest -v
 
+lint:
+	$(PYTHON) -m ruff check .
+
+format:
+	$(PYTHON) -m black .
+
+fix:
+	$(PYTHON) -m ruff check . --fix
+	$(PYTHON) -m black .
+
+check: lint test
+
 clean:
 	rm -rf $(VENV)
 	rm -rf build dist *.egg-info

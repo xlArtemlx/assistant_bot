@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from src.domain.models.note import Note
 
+
 class NotesBook:
     def __init__(self) -> None:
         self.notes: list[Note] = []
@@ -28,7 +29,7 @@ class NotesBook:
             raise ValueError("Note not found.")
 
         del self.notes[zero_based_index]
-    
+
     def get_all_tags(self) -> list[str]:
         tags = set()
 

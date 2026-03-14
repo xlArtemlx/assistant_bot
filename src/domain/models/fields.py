@@ -38,12 +38,14 @@ class Phone(Field):
             raise ValueError("Phone must contain exactly 10 digits.")
         return normalized
 
+
 class Address(Field):
     def _normalize(self, value: str) -> str:
         normalized = value.strip()
         if not normalized:
             raise ValueError("Address is required.")
         return normalized
+
 
 class Email(Field):
     def _normalize(self, value: str) -> str:

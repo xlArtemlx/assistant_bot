@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+
 class Note:
     def __init__(self, note: str, tag: str) -> None:
         self.note = note.strip()

@@ -9,9 +9,18 @@ class BirthdaysMenuScreen(MenuScreen):
 
     def get_commands(self):
         return [
-            ActionCommand("1", "Add or update", "Add or update birthday", self.add_birthday_screen),
-            ActionCommand("2", "Show birthday", "Show contact birthday", self.show_birthday_screen),
-            ActionCommand("3", "Upcoming birthdays", "Show upcoming birthdays", self.upcoming_birthdays_screen),
+            ActionCommand(
+                "1", "Add or update", "Add or update birthday", self.add_birthday_screen
+            ),
+            ActionCommand(
+                "2", "Show birthday", "Show contact birthday", self.show_birthday_screen
+            ),
+            ActionCommand(
+                "3",
+                "Upcoming birthdays",
+                "Show upcoming birthdays",
+                self.upcoming_birthdays_screen,
+            ),
             BackCommand("0"),
         ]
 

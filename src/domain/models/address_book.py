@@ -46,7 +46,9 @@ class AddressBook(UserDict[str, Record]):
                 record.email is not None
                 and normalized_query in record.email.value.lower()
             )
-            phone_match = any(normalized_query in phone.value for phone in record.phones)
+            phone_match = any(
+                normalized_query in phone.value for phone in record.phones
+            )
 
             if name_match or address_match or email_match or phone_match:
                 results.append(record)

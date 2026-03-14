@@ -2,12 +2,18 @@
 
 # Mac
 .DS_Store
+.vscode/
 
 addressbook.pkl
 notes.pkl
 
 assistant_bot.egg-info
 
-.pytest_cache
 
-__pycache__
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/

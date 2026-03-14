@@ -45,18 +45,26 @@ class Printer:
                 widths[index] = max(widths[index], len(str(cell)))
 
         separator = "+-" + "-+-".join("-" * width for width in widths) + "-+"
-        header_line = "| " + " | ".join(
-            headers[index].ljust(widths[index]) for index in range(len(headers))
-        ) + " |"
+        header_line = (
+            "| "
+            + " | ".join(
+                headers[index].ljust(widths[index]) for index in range(len(headers))
+            )
+            + " |"
+        )
 
         print(separator)
         print(header_line)
         print(separator)
 
         for row in materialized_rows:
-            row_line = "| " + " | ".join(
-                str(row[index]).ljust(widths[index]) for index in range(len(row))
-            ) + " |"
+            row_line = (
+                "| "
+                + " | ".join(
+                    str(row[index]).ljust(widths[index]) for index in range(len(row))
+                )
+                + " |"
+            )
             print(row_line)
 
         print(separator)

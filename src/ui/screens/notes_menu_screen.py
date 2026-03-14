@@ -10,12 +10,30 @@ class NotesMenuScreen(MenuScreen):
     def get_commands(self):
         return [
             ActionCommand("1", "Add note", "Create a new note", self.add_note_screen),
-            ActionCommand("2", "Show all notes", "Display all notes", self.show_all_notes_screen),
-            ActionCommand("3", "Search notes", "Search by note or tag", self.search_notes_screen),
-            ActionCommand("4", "Show all tags", "Display all unique tags", self.show_all_tags_screen),
-            ActionCommand("5", "Edit note", "Edit note by index", self.edit_note_screen),
-            ActionCommand("6", "Delete note", "Delete note by index", self.delete_note_screen),
-            ActionCommand("7", "Delete notes by tag", "Delete all notes with a specific tag", self.delete_notes_by_tag_screen),
+            ActionCommand(
+                "2", "Show all notes", "Display all notes", self.show_all_notes_screen
+            ),
+            ActionCommand(
+                "3", "Search notes", "Search by note or tag", self.search_notes_screen
+            ),
+            ActionCommand(
+                "4",
+                "Show all tags",
+                "Display all unique tags",
+                self.show_all_tags_screen,
+            ),
+            ActionCommand(
+                "5", "Edit note", "Edit note by index", self.edit_note_screen
+            ),
+            ActionCommand(
+                "6", "Delete note", "Delete note by index", self.delete_note_screen
+            ),
+            ActionCommand(
+                "7",
+                "Delete notes by tag",
+                "Delete all notes with a specific tag",
+                self.delete_notes_by_tag_screen,
+            ),
             BackCommand("0"),
         ]
 
@@ -70,7 +88,7 @@ class NotesMenuScreen(MenuScreen):
 
         self.printer.print_message(result)
         self.input_handler.pause()
-    
+
     def show_all_tags_screen(self) -> None:
         self.printer.clear_screen()
         self.printer.print_header("ALL TAGS")

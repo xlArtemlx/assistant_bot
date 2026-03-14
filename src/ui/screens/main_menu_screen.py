@@ -17,13 +17,17 @@ class MainMenuScreen(MenuScreen):
                 "1",
                 "Contacts",
                 "Manage contacts",
-                lambda: ContactsMenuScreen(self.context, self.printer, self.input_handler),
+                lambda: ContactsMenuScreen(
+                    self.context, self.printer, self.input_handler
+                ),
             ),
             OpenScreenCommand(
                 "2",
                 "Birthdays",
                 "Manage birthdays",
-                lambda: BirthdaysMenuScreen(self.context, self.printer, self.input_handler),
+                lambda: BirthdaysMenuScreen(
+                    self.context, self.printer, self.input_handler
+                ),
             ),
             OpenScreenCommand(
                 "3",
