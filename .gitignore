@@ -9,7 +9,11 @@ notes.pkl
 
 assistant_bot.egg-info
 
-
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache
 
 # Tool caches
 .pytest_cache/
