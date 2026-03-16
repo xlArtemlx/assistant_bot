@@ -84,6 +84,12 @@ class NotesMenuScreen(MenuScreen):
         self.printer.print_header("DELETE NOTES BY TAG")
 
         tag = self.input_handler.ask("Enter tag")
+        confirm = self.input_handler.ask(f"Delete '{tag}'? (y/n)").lower()
+
+        if confirm != "y":
+            self.printer.print_message("Deletion canceled.")
+            self.input_handler.pause()
+            return
         result = self.context.notes_service.delete_notes_by_tag(tag)
 
         self.printer.print_message(result)
