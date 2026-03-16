@@ -37,7 +37,7 @@ class NotesService:
     def edit_note(self, index: int, new_note: str, new_tag: str) -> str:
         if not index:
             raise ValueError("Note index is required.")
-            
+
         self._notes_book.edit_note(int(index), new_note, new_tag)
         self._repository.save(self._notes_book)
         return "Note updated."

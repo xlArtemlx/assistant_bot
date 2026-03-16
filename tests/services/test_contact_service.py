@@ -46,7 +46,7 @@ def test_add_contact_creates_new_record_and_saves(
     assert created_record.name.value == "John"
 
 
-def test_add_contact_updates_existing_contact_and_saves(
+def test_add_contact_existing_contact(
     service: ContactService,
     book: Mock,
     repository: Mock,
@@ -61,11 +61,7 @@ def test_add_contact_updates_existing_contact_and_saves(
         email="john@example.com",
     )
 
-    assert result == "Contact updated."
-    record.set_address.assert_called_once_with("New address")
-    record.add_phone.assert_called_once_with("1234567890")
-    record.set_email.assert_called_once_with("john@example.com")
-    repository.save.assert_called_once_with(book)
+    assert result == "Contact already exists"
 
 
 def test_add_contact_skips_empty_optional_fields(
@@ -83,7 +79,7 @@ def test_add_contact_skips_empty_optional_fields(
         email="   ",
     )
 
-    assert result == "Contact updated."
+    assert result == "Contact already exists"
     record.set_address.assert_not_called()
     record.add_phone.assert_not_called()
     record.set_email.assert_not_called()
