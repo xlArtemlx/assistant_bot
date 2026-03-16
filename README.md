@@ -11,7 +11,10 @@ pip install -e .
 
 ## Run
 
+```bash
 assistant-bot
+
+```
 
 ## Delete
 
