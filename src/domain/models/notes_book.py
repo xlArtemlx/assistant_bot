@@ -36,7 +36,7 @@ class NotesBook:
         for note in self.notes:
             tags.add(note.tag)
 
-        return list(tags)
+        return sorted(tags)
 
     def delete_by_tag(self, tag: str) -> int:
         original_count = len(self.notes)

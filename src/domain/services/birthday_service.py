@@ -45,6 +45,13 @@ class BirthdayService:
     @input_error
     def add_or_update_birthday(self, name: str, birthday_str: str) -> str:
         record = self._get_record_or_raise(name)
+
+        birthday_date = datetime.strptime(birthday_str, "%d.%m.%Y").date()
+        today = datetime.today().date()
+
+        if birthday_date > today:
+            raise ValueError("Birthday cannot be in the future.")
+
         record.add_birthday(birthday_str)
         self._repository.save(self._book)
         return "Birthday saved."

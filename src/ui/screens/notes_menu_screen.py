@@ -41,8 +41,8 @@ class NotesMenuScreen(MenuScreen):
         self.printer.clear_screen()
         self.printer.print_header("ADD NOTE")
 
-        note = self.input_handler.ask("Enter note")
-        tag = self.input_handler.ask("Enter tag")
+        note = self.input_handler.ask("Enter note (required)")
+        tag = self.input_handler.ask("Enter tag (required)")
 
         result = self.context.notes_service.add_note(note, tag)
         self.printer.print_message(result)
@@ -104,6 +104,10 @@ class NotesMenuScreen(MenuScreen):
         self.printer.print_header("EDIT NOTE")
 
         index_str = self.input_handler.ask("Enter note index")
+        if not index_str.isdigit():
+            self.printer.print_message("Invalid index. Please enter a number.")
+            self.input_handler.pause()
+            return
         new_note = self.input_handler.ask("Enter new note")
         new_tag = self.input_handler.ask("Enter new tag")
 

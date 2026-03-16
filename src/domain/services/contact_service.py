@@ -35,17 +35,16 @@ class ContactService:
             record = Record(name)
             self._book.add_record(record)
             message = "Contact added."
+            if address.strip():
+                record.set_address(address)
+
+            if phone.strip():
+                record.add_phone(phone)
+
+            if email.strip():
+                record.set_email(email)
         else:
-            message = "Contact updated."
-
-        if address.strip():
-            record.set_address(address)
-
-        if phone.strip():
-            record.add_phone(phone)
-
-        if email.strip():
-            record.set_email(email)
+            message = "Contact already exists"
 
         self._repository.save(self._book)
         return message

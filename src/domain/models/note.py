@@ -9,6 +9,9 @@ class Note:
         if not self.note:
             raise ValueError("Note is required.")
 
+        if not self.tag:
+            raise ValueError("Tag is required.")
+
     def matches(self, query: str) -> bool:
         normalized_query = query.strip().lower()
 
