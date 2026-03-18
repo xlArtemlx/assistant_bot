@@ -11,7 +11,7 @@ class NotesBook:
         self.notes.append(note)
 
     def get_all(self) -> list[Note]:
-        return list(self.notes)
+        return sorted(self.notes, key=lambda note: note.tag.lower())
 
     def search(self, query: str) -> list[tuple[int, Note]]:
         results: list[tuple[int, Note]] = []
